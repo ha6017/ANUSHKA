@@ -19,7 +19,9 @@ int main(){
     }
 
     int n;
+    double m;
     string word;
+    vector<double> v;
 
     polynomial obj1;
 
@@ -34,7 +36,14 @@ int main(){
         }
         else if(word == "coeff_p1"){
             cout<<"calling coeff_p1"<<endl;
-            
+            infile>>m;
+            for(int i=0;i<n;i++){
+                infile>>m;
+                v.push_back(m); // v[0]==m;
+                infile>>word;
+            }
+            obj1.coeff_p1(v);
+            obj1.display();
         }
     }
     

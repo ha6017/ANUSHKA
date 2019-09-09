@@ -38,23 +38,31 @@ class polynomial{
                         tail->next = tmp;
                         tail = tail->next;
                     }
-                    cout<<"node added"<<endl;
+                    //cout<<"node added"<<endl;
                 }      
             }
         }
 
-        void coeff_p1(){
-            
+        void coeff_p1(const vector<double> v){
+            struct node *temp;
+            temp=head;
+            int i=0;
+            while(temp!=NULL)
+            {
+                temp->data = v[i];
+                temp=temp->next;
+                i++;
+            }
         }
 
         void display()
         {
-            struct node *temp;
+            node *temp;
             temp=head;
             while(temp!=NULL)
             {
-            printf("%f",temp->data);
-            temp=temp->next;
+                cout<<temp->data<<endl;
+                temp=temp->next;
             }
         }
     
