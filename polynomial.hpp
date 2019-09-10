@@ -23,6 +23,7 @@ class polynomial{
         }
 
         void init(int num){
+            
             if(num > 0){
                 for(int i=0;i<num;i++){
                     node *tmp = new node;
@@ -52,6 +53,51 @@ class polynomial{
                 temp->data = v[i];
                 temp=temp->next;
                 i++;
+            }
+            cout<<"reached cp1"<<endl;
+        }
+
+        bool get(const vector<double> v){
+            node *temp;
+            temp=head;
+            int count=0;
+            int i=0;
+            while(temp!=NULL)
+            {
+                if(temp->data == v[i]) count++;
+                temp=temp->next;
+                i++;
+            }
+            cout<<"count ="<<count<<endl;
+            cout<<v.size()<<endl;
+            if(count == v.size()){
+                return true;
+            }else{
+                return false;
+            }
+        }
+
+        bool eval(double x, double y){
+            double current_val=0.0;
+            double val;
+            struct node *temp;
+            temp=head;
+            int i=0;
+            while(temp!=NULL)
+            {
+                val=temp->data*pow(x,i);
+                temp=temp->next;
+                current_val+=val;
+                i++;
+            }
+            
+            if(current_val==y){
+                cout<<"success"<<endl;
+                return true;
+            }
+            else{
+                cout<<"failure"<<endl;
+                return false;
             }
         }
 
